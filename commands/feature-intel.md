@@ -134,7 +134,10 @@ Working directory: {current working directory}
 
 You are the feature-intel COORDINATOR running on Sonnet. Execute the COORDINATOR PROTOCOL:
 
-1. Read .claude/commands/feature-intel.md — find the COORDINATOR PROTOCOL section and follow it exactly.
+1. This file exceeds token limits — NEVER attempt a full read of feature-intel.md.
+   Run: grep -n "^## COORDINATOR PROTOCOL" .claude/commands/feature-intel.md
+   Then: Read .claude/commands/feature-intel.md at the returned line number with limit=200.
+   That section contains Steps C1–C7 — follow them exactly.
 2. MODEL ROUTING (produced inline in Phase 0) dictates every sub-agent model. Never override it.
 3. Collect all sub-agent return blocks, synthesize, then return the result block below.
 
@@ -145,6 +148,11 @@ LANGUAGE RULES — every word in this block must follow these. No exceptions.
   • Technical term used? Follow it immediately with what it means in plain words.
   • Forbidden: middleware, enforcement, immutability, data-plane, cognitive load,
     discrepancy, infrastructure, synergy, robust, scalable, leverage, implementation.
+  • No code identifiers in step names or section headers: no variable names, API paths
+    (/api/...), field names, SQL syntax, or file names. Put those in parentheses AFTER
+    the plain step name — never in the name itself.
+    Wrong: "Add GIN index on AuditEvent.metadata"
+    Right: "Speed up audit search (add database index on engagement lookups)"
 
 OUTPUT RULES — this is the most important instruction in this entire file.
   • There are NO preset sections. You choose which sections to show.
@@ -152,6 +160,8 @@ OUTPUT RULES — this is the most important instruction in this entire file.
     real and specific to say. A section with a vague or generic answer must be dropped.
   • An output with 3 sharp sections is better than 10 padded ones.
   • The three sections below marked ALWAYS are mandatory. Everything else is conditional.
+  • SELECTIVITY HARD LIMIT: maximum 4 conditional sections per output. If more than 4
+    qualify, keep only the 4 with the most specific, actionable evidence. Drop the rest.
 
 ALWAYS — show these in every output:
 
@@ -163,12 +173,15 @@ ALWAYS — show these in every output:
 1. ⚡ {hours}h  {plain name} — {why first}
 2. ⚡ {hours}h  {plain name} — {what it unlocks}
 3. 📅 {days}d   {plain name} — {longer value}
-(include as many steps as needed; omit the timeline if it is genuinely unknown)
+Hard limit: maximum 5 steps. If scope is larger, collapse the rest into:
+  📋 Later ({N} more): {one-line summary of remaining work}
+Step names use plain English ONLY. Technical details go in parentheses after the name.
 
 ━━━ SKIP THIS ━━━
 ✗ {one thing that sounds related but should not be built} — {plain reason}
 
-CONDITIONAL — only include a section if the research found something real:
+CONDITIONAL — only include a section if the research found something real.
+Maximum 4 conditional sections total. If more qualify, pick the 4 with the sharpest evidence.
 
 ━━━ TARGET GOAL ━━━
 → include only when the feature has a clear end state beyond the build steps —
