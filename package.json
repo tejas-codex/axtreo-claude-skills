@@ -1,0 +1,17 @@
+{
+  "name": "axtreo-claude-skills",
+  "version": "1.0.0",
+  "description": "Claude Code slash commands for the Axtreo team",
+  "main": "install.js",
+  "bin": {
+    "axtreo-claude-skills": "./install.js"
+  },
+  "scripts": {
+    "start": "node install.js"
+  },
+  "keywords": ["claude", "claude-code", "axtreo", "slash-commands"],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}
