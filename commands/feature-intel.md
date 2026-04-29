@@ -516,7 +516,7 @@ Score every lens in the library from **0 to 10**. Assign a depth based on the sc
 | 6–8 | **MODERATE** | Material. Run 2–3 focused checks. Short paragraph finding per lens. |
 | 9–10 | **DEEP** | Governs correctness, compliance, or architectural moat for this feature. Full research, no caps. |
 
-**Default rule for Tier-1 lenses**: L1.2, L1.7, L2.3, L3.1, L4.4, L12.3 start at LIGHT (score 4). New lenses: L12.1, L15.1, L17.4, L18.1, L18.2 start at MODERATE (score 6); L15.2, L16.1, L16.2, L17.1, L17.2, L17.3, L17.5, L17.6, L20.1, L20.2 start at LIGHT (score 4). Client Psychology / Behavioral / Moment lenses: L22.1, L22.2, L22.4, L23.2, L24.2 start at MODERATE (score 6); L22.3, L23.1, L23.3, L23.4, L24.1, L24.3, L24.4, L25.1, L25.2, L25.3, L26.1, L26.2, L27.1, L27.2, L27.3 start at LIGHT (score 4). Elevate only if the feature's domain signals, Money Touch, Compliance Surface, or Write Path demand it.
+**Default rule for Tier-1 lenses**: L1.2, L1.7, L2.3, L3.1, L4.4, L12.3 start at LIGHT (score 4). New lenses: L12.1, L15.1, L17.4, L18.1, L18.2 start at MODERATE (score 6); L15.2, L16.1, L16.2, L17.1, L17.2, L17.3, L17.5, L17.6, L20.1, L20.2 start at LIGHT (score 4). Client Psychology / Behavioral / Moment lenses: L22.1, L22.2, L22.4, L23.2, L24.2 start at MODERATE (score 6); L22.3, L23.1, L23.3, L23.4, L24.1, L24.3, L24.4, L25.1, L25.2, L25.3, L26.1, L26.2, L27.1, L27.2, L27.3 start at LIGHT (score 4). Engagement Architecture: L28.1, L28.2 start at MODERATE (score 6) for all user-facing features; L28.3, L28.4, L28.5 start at LIGHT (score 4). Elevate only if the feature's domain signals, Money Touch, Compliance Surface, or Write Path demand it.
 
 **Full lens library to score:**
 
@@ -612,6 +612,13 @@ Switching & Retention
   L27.1  Switching Friction  — why do clients stay broken? what is the real migration fear?
   L27.2  Stickiness Moat     — after 3 months of use, how hard is it to leave? (data gravity, integrations)
   L27.3  Compounding Value   — does value increase the longer they use it? (data flywheel, cohort depth)
+
+Engagement Architecture
+  L28.1  Habit Loop Design      — trigger → action → variable reward → investment cycle present?
+  L28.2  Daily Return Value     — what genuine reason does this give the user to open the app TODAY?
+  L28.3  30-Second Version      — can the core value be consumed in 30 seconds? (crisis UX, mobile-first)
+  L28.4  Progressive Layer      — which unlock layer? week 1–4 / month 2 / month 3 / month 4+?
+  L28.5  Persona Loop Fit       — does the loop fit Sophie (monthly close) / Marcus (set-forget) / Priya (daily multi-entity)?
 ```
 
 ---
@@ -760,6 +767,11 @@ L26.2 Blind Spot Map      {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L27.1 Switching Friction  {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L27.2 Stickiness Moat     {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L27.3 Compounding Value   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L28.1 Habit Loop Design   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L28.2 Daily Return Value  {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L28.3 30-Second Version   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L28.4 Progressive Layer   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L28.5 Persona Loop Fit    {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 
 COUNTRY ROUTING
 {C-code: reason for activation — OR — SKIP: no tax/payroll/FX signal}
