@@ -138,55 +138,92 @@ You are the feature-intel COORDINATOR running on Sonnet. Execute the COORDINATOR
 2. MODEL ROUTING (produced inline in Phase 0) dictates every sub-agent model. Never override it.
 3. Collect all sub-agent return blocks, synthesize, then return the result block below.
 
+LANGUAGE RULES — every word in this block must follow these. No exceptions.
+  • Client words only. Not analyst words. ("my books are a mess" not "reconciliation discrepancy")
+  • One sentence per bullet. No paragraphs. No walls of text.
+  • Numbers beat adjectives. ("saves 3 hours/month" not "significant time savings")
+  • If a technical term is unavoidable, explain it in plain words immediately after. ("SHA-256 hash — a tamper-proof fingerprint")
+  • Forbidden words: middleware, enforcement, immutability, data-plane, period gate, cognitive load, discrepancy, infrastructure, implementation, leverage, synergy, robust, scalable.
+
 Return ONLY this block when done — no prose, no commentary, nothing else:
 
 REPORT: /tmp/feature-intel-{slug}-{YYYYMMDD}.md
 
-━━━ VERDICT ━━━
-{2 sentences — what exists today + what the 10x gap is}
+━━━ 1. THE PAIN ━━━
+"{exact words a client would say out loud when this hurts them}"
+Why it matters: {one plain sentence — what goes wrong in their day without this}
 
-━━━ RISKS ━━━
-🔴 P0  {item} — {one line: why it blocks ship}
-🟡 P1  {item} — {one line: impact if skipped}
-🟡 P1  {item} — {one line: impact if skipped}
-(omit P1 rows if none; never add more than 1 P0)
+━━━ 2. WHO NEEDS IT MOST ━━━
+Persona: {Sophie / Priya / Marcus / Linda}
+When it hits: {the exact moment they feel this — "night before board meeting", "every month-end", "first audit"}
+How often: {daily / weekly / monthly / once}
 
-━━━ SHIP ORDER ━━━
-P0  ⚡ hours  {item name} — {one-line rationale}
-P1  ⚡ hours  {item name} — {one-line value}
-P2  📅 days   {item name} — {one-line value}
+━━━ 3. WHAT WE HAVE TODAY ━━━
+{bullet each existing feature that touches this area — plain names, no jargon}
+Gap: {one sentence — what the current state cannot do}
 
-━━━ CLASS A MOAT ━━━
-→ {item} — {why no competitor has it}
-→ {item} — {why no competitor has it}
+━━━ 4. WHAT TO BUILD, IN ORDER ━━━
+1. ⚡ {hours}h  {plain feature name} — {why this comes first, one sentence}
+2. ⚡ {hours}h  {plain feature name} — {what it unlocks}
+3. 📅 {days}d   {plain feature name} — {longer-term value}
 
-━━━ DO NOT BUILD ━━━
-✗  {item} — {one-line reason}
+━━━ 5. WHAT COULD GO WRONG ━━━
+🔴 Must fix before launch: {plain English — what breaks for the client if we skip this}
+🟡 Fix soon: {plain English — what gets worse over time}
+🟡 Fix soon: {plain English — what gets worse over time}
+(omit 🟡 rows if none; never add more than 1 🔴)
 
-━━━ PATTERN ━━━
-{one reusable architecture or research pattern from this run — or "none"}
+━━━ 6. OUR EDGE ━━━
+→ {thing we can build that competitors cannot copy easily} — {why, in one sentence}
+→ {second edge, if any}
+
+━━━ 7. WHAT COMPETITORS DO ━━━
+{Competitor name}: {what they do for this problem, one line}
+Our gap: {what we do better, or what they do that we don't yet}
+
+━━━ 8. WILL CLIENTS PAY? ━━━
+Tier this belongs in: {FREE / SOLO / STARTER / GROWTH / SCALE}
+Signal: "{one real quote or data point from client research — their words}"
+Upgrade trigger: {what makes a client on a lower tier want to upgrade for this}
+
+━━━ 9. TIME + COST ━━━
+Dev time: ~{N} hours total
+Schema change needed: yes / no
+AI credit cost per use: none / low (~$0.01) / medium (~$0.10) / high (>$0.50)
+Blocks any existing feature: {feature name — or "nothing"}
+
+━━━ 10. THE BUSINESS STORY ━━━
+{One sentence a founder can say to an investor or customer: "With this, Axtreo is the only tool that..."}
+
+━━━ 11. SKIP THIS ━━━
+✗ {one specific thing that sounds related but we should not build} — {plain reason: too complex, zero demand, conflicts with X}
+
+━━━ 12. ONE THING TO REMEMBER ━━━
+{The single most important insight from this research — stated as a plain sentence a non-technical person can act on}
 `
 })
 ```
 
 When the coordinator returns:
-1. Output the formatted block above exactly as returned.
-2. Add the report path as a clickable link: `📄 Full report: {REPORT path}`
-3. Then — **without doing any other work** — append this menu, substituting the real item names from the block:
+1. Output the formatted 12-section block exactly as returned. Do not reformat or summarise it.
+2. Add: `📄 Full report: {REPORT path}`
+3. Then — **without doing any other work** — append this menu. Use the real item names from the block, in plain English, matching the language rules above:
 
 ```
 ━━━ WHAT DO WE DO NEXT? ━━━
-1  🔴 Fix P0    — {P0 item name}
-2  ⚡ Build P1   — {P1 item name}
-3  📅 Start P2  — {P2 item name}
-4  🏰 Explore moat — {first Class A item}
-5  Something else — tell me
+1  🔴 Fix the blocker     — {🔴 item from section 5, plain words}
+2  ⚡ Build first         — {item 1 from section 4, plain words}
+3  ⚡ Build second        — {item 2 from section 4, plain words}
+4  🏰 Lock in our edge    — {first item from section 6, plain words}
+5  💰 Check the pricing   — dig deeper into who pays and why
+6  🔍 Understand the pain — run /client-voice for real client language
+7  Something else         — tell me what
 
 Reply with a number and I'll start immediately.
 ```
 
-4. **Wait for the user's reply.** Do not proceed, do not summarise, do not ask follow-up questions.
-5. When the user replies with a number (or text): execute that item directly — build it, create the PR branch, write the implementation plan, or run the next research pass. No further confirmation needed.
+4. **Wait.** Do not proceed, summarise, or ask follow-up questions.
+5. When the user replies: execute immediately — branch + build, research pass, or implementation plan. No confirmation needed.
 
 ---
 
