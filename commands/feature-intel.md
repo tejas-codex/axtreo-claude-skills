@@ -139,91 +139,91 @@ You are the feature-intel COORDINATOR running on Sonnet. Execute the COORDINATOR
 3. Collect all sub-agent return blocks, synthesize, then return the result block below.
 
 LANGUAGE RULES — every word in this block must follow these. No exceptions.
-  • Client words only. Not analyst words. ("my books are a mess" not "reconciliation discrepancy")
-  • One sentence per bullet. No paragraphs. No walls of text.
+  • Plain words only. ("my books are a mess" not "reconciliation discrepancy")
+  • One sentence per bullet. No paragraphs.
   • Numbers beat adjectives. ("saves 3 hours/month" not "significant time savings")
-  • If a technical term is unavoidable, explain it in plain words immediately after. ("SHA-256 hash — a tamper-proof fingerprint")
-  • Forbidden words: middleware, enforcement, immutability, data-plane, period gate, cognitive load, discrepancy, infrastructure, implementation, leverage, synergy, robust, scalable.
+  • Technical term used? Follow it immediately with what it means in plain words.
+  • Forbidden: middleware, enforcement, immutability, data-plane, cognitive load,
+    discrepancy, infrastructure, synergy, robust, scalable, leverage, implementation.
 
-Return ONLY this block when done — no prose, no commentary, nothing else:
+OUTPUT RULES — this is the most important instruction in this entire file.
+  • There are NO preset sections. You choose which sections to show.
+  • Every section must be EARNED — only include it if the research found something
+    real and specific to say. A section with a vague or generic answer must be dropped.
+  • An output with 3 sharp sections is better than 10 padded ones.
+  • The three sections below marked ALWAYS are mandatory. Everything else is conditional.
 
-REPORT: /tmp/feature-intel-{slug}-{YYYYMMDD}.md
+ALWAYS — show these in every output:
 
-━━━ 1. THE PAIN ━━━
-"{exact words a client would say out loud when this hurts them}"
-Why it matters: {one plain sentence — what goes wrong in their day without this}
+━━━ THE PROBLEM ━━━
+"{one sentence in plain words — what is actually broken or missing}"
+{one sentence — what goes wrong for the person using Axtreo without this}
 
-━━━ 2. WHO NEEDS IT MOST ━━━
-Persona: {Sophie / Priya / Marcus / Linda}
-When it hits: {the exact moment they feel this — "night before board meeting", "every month-end", "first audit"}
-How often: {daily / weekly / monthly / once}
+━━━ BUILD IN THIS ORDER ━━━
+1. ⚡ {hours}h  {plain name} — {why first}
+2. ⚡ {hours}h  {plain name} — {what it unlocks}
+3. 📅 {days}d   {plain name} — {longer value}
+(include as many steps as needed; omit the timeline if it is genuinely unknown)
 
-━━━ 3. WHAT WE HAVE TODAY ━━━
-{bullet each existing feature that touches this area — plain names, no jargon}
-Gap: {one sentence — what the current state cannot do}
+━━━ SKIP THIS ━━━
+✗ {one thing that sounds related but should not be built} — {plain reason}
 
-━━━ 4. WHAT TO BUILD, IN ORDER ━━━
-1. ⚡ {hours}h  {plain feature name} — {why this comes first, one sentence}
-2. ⚡ {hours}h  {plain feature name} — {what it unlocks}
-3. 📅 {days}d   {plain feature name} — {longer-term value}
+CONDITIONAL — only include a section if the research found something real:
 
-━━━ 5. WHAT COULD GO WRONG ━━━
-🔴 Must fix before launch: {plain English — what breaks for the client if we skip this}
-🟡 Fix soon: {plain English — what gets worse over time}
-🟡 Fix soon: {plain English — what gets worse over time}
-(omit 🟡 rows if none; never add more than 1 🔴)
+━━━ WHO FEELS IT ━━━
+→ include only when there is a specific person + specific moment (e.g. "Sophie,
+  night before board meeting"). Skip if the answer is "everyone, all the time."
 
-━━━ 6. OUR EDGE ━━━
-→ {thing we can build that competitors cannot copy easily} — {why, in one sentence}
-→ {second edge, if any}
+━━━ WHAT WE HAVE TODAY ━━━
+→ include only when existing code or features are directly relevant and a
+  developer needs to know about them before touching this area.
 
-━━━ 7. WHAT COMPETITORS DO ━━━
-{Competitor name}: {what they do for this problem, one line}
-Our gap: {what we do better, or what they do that we don't yet}
+━━━ WHAT COULD BREAK ━━━
+→ include only when there is at least one real blocker (🔴) or near-miss (🟡).
+  🔴 = something that will break for the client if we launch without fixing it.
+  🟡 = something that gets worse over time if we skip it.
+  Never add more than one 🔴. Omit if there are no genuine risks.
 
-━━━ 8. WILL CLIENTS PAY? ━━━
-Tier this belongs in: {FREE / SOLO / STARTER / GROWTH / SCALE}
-Signal: "{one real quote or data point from client research — their words}"
-Upgrade trigger: {what makes a client on a lower tier want to upgrade for this}
+━━━ OUR EDGE ━━━
+→ include only when research found a genuine Class A moat — something no
+  competitor has and that takes real effort to copy. Skip if the answer is vague.
 
-━━━ 9. TIME + COST ━━━
-Dev time: ~{N} hours total
-Schema change needed: yes / no
-AI credit cost per use: none / low (~$0.01) / medium (~$0.10) / high (>$0.50)
-Blocks any existing feature: {feature name — or "nothing"}
+━━━ COMPETITOR GAP ━━━
+→ include only when gap analysis found a specific, actionable gap Axtreo can
+  win on. One competitor, one gap, one line. Skip if nothing specific found.
 
-━━━ 10. THE BUSINESS STORY ━━━
-{One sentence a founder can say to an investor or customer: "With this, Axtreo is the only tool that..."}
+━━━ COST TO RUN ━━━
+→ include only when AI credit cost, a schema migration, or infra cost is
+  non-trivial and a developer or founder needs to know before building.
+  Format: dev time / schema change yes|no / AI cost per use if any.
 
-━━━ 11. SKIP THIS ━━━
-✗ {one specific thing that sounds related but we should not build} — {plain reason: too complex, zero demand, conflicts with X}
-
-━━━ 12. ONE THING TO REMEMBER ━━━
-{The single most important insight from this research — stated as a plain sentence a non-technical person can act on}
+━━━ KEY PATTERN ━━━
+→ include only when research revealed a reusable technical or product insight
+  that applies beyond this feature. One sentence, plain words.
 `
 })
 ```
 
 When the coordinator returns:
-1. Output the formatted 12-section block exactly as returned. Do not reformat or summarise it.
+1. Output the block exactly as returned — no reformatting, no additions, no summary.
 2. Add: `📄 Full report: {REPORT path}`
-3. Then — **without doing any other work** — append this menu. Use the real item names from the block, in plain English, matching the language rules above:
+3. Build the WHAT DO WE DO NEXT? menu dynamically from whatever sections appeared.
+   — Always include: the first BUILD step, and "something else".
+   — Add an option for each 🔴 risk found, each OUR EDGE found, each COMPETITOR GAP found.
+   — Add "🔍 Dig into client language — run /client-voice" only if WHO FEELS IT was present.
+   — Never include options for sections that were skipped.
+   — Maximum 5 options + "something else". Pick the most actionable ones.
 
 ```
 ━━━ WHAT DO WE DO NEXT? ━━━
-1  🔴 Fix the blocker     — {🔴 item from section 5, plain words}
-2  ⚡ Build first         — {item 1 from section 4, plain words}
-3  ⚡ Build second        — {item 2 from section 4, plain words}
-4  🏰 Lock in our edge    — {first item from section 6, plain words}
-5  💰 Check the pricing   — dig deeper into who pays and why
-6  🔍 Understand the pain — run /client-voice for real client language
-7  Something else         — tell me what
+{numbered options derived from the block above — see rules}
 
 Reply with a number and I'll start immediately.
 ```
 
 4. **Wait.** Do not proceed, summarise, or ask follow-up questions.
-5. When the user replies: execute immediately — branch + build, research pass, or implementation plan. No confirmation needed.
+5. When the user replies: execute immediately — branch + build, research pass, or
+   implementation plan. No further confirmation needed.
 
 ---
 
