@@ -1,7 +1,7 @@
 {
   "name": "axtreo-claude-skills",
-  "version": "1.0.0",
-  "description": "Claude Code slash commands for the Axtreo team",
+  "version": "2.0.0",
+  "description": "Axtreo Claude Code commands + cross-tool adapters for Cursor, Windsurf, Copilot, Codex",
   "main": "install.js",
   "bin": {
     "axtreo-claude-skills": "./install.js"
@@ -9,7 +9,19 @@
   "scripts": {
     "start": "node install.js"
   },
-  "keywords": ["claude", "claude-code", "axtreo", "slash-commands"],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "opencode",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "codex",
+    "axtreo",
+    "slash-commands",
+    "ai-rules",
+    "skills"
+  ],
   "license": "UNLICENSED",
   "engines": {
     "node": ">=18"

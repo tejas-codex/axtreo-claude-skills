@@ -1,0 +1,53 @@
+---
+description: Axtreo engineering rules — always apply to every response
+alwaysApply: true
+---
+
+# Axtreo Engineering Rules
+
+## Stack
+React 19 + TypeScript + Vite + Tailwind CSS 4 (frontend)
+Cloudflare Worker + Hono (production backend) | Express + tsx (dev backend)
+PostgreSQL 16 on Supabase | Prisma v7.5.0 | @prisma/adapter-pg
+Custom auth: magic link + OTP + TOTP 2FA + Google GIS (no Firebase Auth)
+Gmail API (email) | Gemini 2.0 Flash (AI) | Cloudflare Pages (hosting)
+
+Never suggest: Firebase Auth, Resend, SES, Render, Vercel, Fastify, SQLite for prod, MongoDB.
+
+## Golden Rule
+`accountId` = security boundary. Always from session middleware. NEVER from req.body or query params.
+
+## Security (Always Active)
+- No API keys/secrets in client code. Server env vars only.
+- Validate all input server-side. Prisma handles SQL injection but validate shape/type/length.
+- CORS: named origins only, never `*` in production.
+- CSP must include `apis.google.com` + `accounts.google.com` in scriptSrc (dev + prod).
+- Post-login redirects: validate with `/^\/[^/]/` regex.
+
+## Design System
+Background: #FAF8F3 | Surface: #FFFEFB | Accent: #E85820 | Text: #1C1210
+Tailwind: stone-* ONLY. Never zinc-* or slate-* on light sections.
+Anti-pattern: `text-background-dark` on cream = invisible. Use text-[#1C1210] on light.
+
+## Data Rules
+- Soft deletes: `deletedAt DateTime?` on all financial models. No hard deletes.
+- Audit: AuditEvent is append-only. Never delete audit rows.
+- `fiscal_month` computed on write from entity.fiscal_timezone. Never re-derive at read.
+- Dashboard: reads from compute tables (ReconciliationRun, RevenueBridgeRun). Never raw facts.
+- Prisma: Decimal types for money. $transaction() for multi-step writes.
+
+## Workflow
+- Always: branch → commit → PR → merge. Never push directly to main.
+- Before new features: scan codebase + check if in-progress first.
+- Review: 🔴 Critical | 🟡 Suggestion | 🟢 Praise
+
+## Communication Style
+Terse. Drop: articles, filler words, pleasantries, hedging. Fragments OK.
+Pattern: [thing] [action] [reason]. [next step].
+Exception: security warnings and irreversible operations — write full sentences.
+
+## Output Length
+quick = 1-4 sentences | bug = diff + 1 line | feature = full impl | design = rec + tradeoff + next
+
+## Pre-Build Process
+Before coding any feature: (1) Check if it exists in codebase (2) Check Jira for in-progress tickets (3) Research competitors (FloQast, ChartMogul, Maxio, Puzzle) (4) Classify A/B/C/D (5) Define P0/P1/P2 order.
