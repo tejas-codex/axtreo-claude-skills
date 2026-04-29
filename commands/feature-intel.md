@@ -516,7 +516,7 @@ Score every lens in the library from **0 to 10**. Assign a depth based on the sc
 | 6–8 | **MODERATE** | Material. Run 2–3 focused checks. Short paragraph finding per lens. |
 | 9–10 | **DEEP** | Governs correctness, compliance, or architectural moat for this feature. Full research, no caps. |
 
-**Default rule for Tier-1 lenses**: L1.2, L1.7, L2.3, L3.1, L4.4, L12.3 start at LIGHT (score 4). New lenses: L12.1, L15.1, L17.4, L18.1, L18.2 start at MODERATE (score 6); L15.2, L16.1, L16.2, L17.1, L17.2, L17.3, L17.5, L17.6, L20.1, L20.2 start at LIGHT (score 4). Elevate only if the feature's domain signals, Money Touch, Compliance Surface, or Write Path demand it.
+**Default rule for Tier-1 lenses**: L1.2, L1.7, L2.3, L3.1, L4.4, L12.3 start at LIGHT (score 4). New lenses: L12.1, L15.1, L17.4, L18.1, L18.2 start at MODERATE (score 6); L15.2, L16.1, L16.2, L17.1, L17.2, L17.3, L17.5, L17.6, L20.1, L20.2 start at LIGHT (score 4). Client Psychology / Behavioral / Moment lenses: L22.1, L22.2, L22.4, L23.2, L24.2 start at MODERATE (score 6); L22.3, L23.1, L23.3, L23.4, L24.1, L24.3, L24.4, L25.1, L25.2, L25.3, L26.1, L26.2, L27.1, L27.2, L27.3 start at LIGHT (score 4). Elevate only if the feature's domain signals, Money Touch, Compliance Surface, or Write Path demand it.
 
 **Full lens library to score:**
 
@@ -580,6 +580,38 @@ Product / Growth
 Accessibility / DX
   L20.1 WCAG Accessibility   — keyboard nav, ARIA roles, colour contrast on warm cream (#FAF8F3), visible labels, live regions
   L20.2 Developer Experience — npm scripts, .env.example gaps, README, git hooks, clone-to-run time
+
+Client Psychology
+  L22.1  JTBD                — what job is client hiring this feature for? what trigger event causes them to act?
+  L22.2  Pain Archaeology    — what workaround does the client use TODAY? (tool count, manual steps, time cost)
+  L22.3  Outcome Definition  — what does "done" feel like? how does the client measure success post-feature?
+  L22.4  Trust Economics     — does this increase or decrease the client's trust in their own numbers?
+
+Behavioral Economics
+  L23.1  Cognitive Load      — how many mental models does this collapse or add? (fewer = better)
+  L23.2  Regret Frame        — what is the worst outcome without this feature? is that asymmetry in the pitch?
+  L23.3  Loss Aversion       — what is the client protecting against? lead with that, not with capability
+  L23.4  Habit Potential     — daily/weekly ritual or monthly-only event? (ritual = higher retention)
+
+Moment Architecture
+  L24.1  Trigger Map         — 3 specific events that send the client to this feature right now
+  L24.2  Midnight Test       — usable at 11pm before a board meeting? crisis UX vs demo UX?
+  L24.3  First Value Moment  — when does the client first feel "this just saved me"? design for that moment
+  L24.4  Wow Moment          — single number/insight that makes client say "oh wow" — what is it?
+
+Identity & Status
+  L25.1  Identity Upgrade    — does this move client: reactive reporter → proactive analyst?
+  L25.2  CEO Moment          — what does the client show their CEO? what do they say? design the demo
+  L25.3  Audit Credibility   — does this increase the client's credibility with their auditor?
+
+Hidden Value
+  L26.1  Leakage Detection   — what revenue or risk does this surface that the client didn't know existed?
+  L26.2  Blind Spot Map      — what can the client NOT see today that this makes visible?
+
+Switching & Retention
+  L27.1  Switching Friction  — why do clients stay broken? what is the real migration fear?
+  L27.2  Stickiness Moat     — after 3 months of use, how hard is it to leave? (data gravity, integrations)
+  L27.3  Compounding Value   — does value increase the longer they use it? (data flywheel, cohort depth)
 ```
 
 ---
@@ -609,8 +641,14 @@ Score each of the 5 research lenses. A research lens score translates directly t
 | Lens 3 — Regulation Accelerator | 0–10 | | SKIP / 1–2 / 3–5 / unlimited |
 | Lens 4 — Architecture Leverage | 0–10 | | SKIP / 1–2 / 3–5 / unlimited |
 | Lens 5 — UX Reduction | 0–10 | | SKIP / 1–2 / 3–5 / unlimited |
+| Lens 6 — Client Voice Research | 0–10 | | SKIP / 1–2 / 3–5 / unlimited |
+| Lens 7 — Switch Interview Patterns | 0–10 | | SKIP / 1–2 / 3–5 / unlimited |
 
 For Lens 2 (Competitor Gap): if activated, name exactly 3–5 competitors relevant to this specific feature. Do not default to the full domain list — reason about which competitors have actually built something relevant.
+
+For Lens 6 (Client Voice): if activated, name the pain domains to search (e.g. "reconciliation", "month-end close", "MRR trust"). Start MODERATE (score 6) by default — every user-facing feature benefits from real client language.
+
+For Lens 7 (Switch Interview): if activated, name the 2–4 tools clients are switching FROM. Mine their exact exit language — this is your conversion copy.
 
 ---
 
@@ -702,6 +740,26 @@ L18.1 Prisma Safety       {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L18.2 Query Performance   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L20.1 Accessibility       {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 L20.2 Dev Experience      {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L22.1 JTBD                {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L22.2 Pain Archaeology    {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L22.3 Outcome Definition  {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L22.4 Trust Economics     {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L23.1 Cognitive Load      {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L23.2 Regret Frame        {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L23.3 Loss Aversion       {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L23.4 Habit Potential     {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L24.1 Trigger Map         {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L24.2 Midnight Test       {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L24.3 First Value Moment  {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L24.4 Wow Moment          {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L25.1 Identity Upgrade    {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L25.2 CEO Moment          {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L25.3 Audit Credibility   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L26.1 Leakage Detection   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L26.2 Blind Spot Map      {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L27.1 Switching Friction  {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L27.2 Stickiness Moat     {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
+L27.3 Compounding Value   {DEEP|MODERATE|LIGHT|SKIP}  {one-line reason}
 
 COUNTRY ROUTING
 {C-code: reason for activation — OR — SKIP: no tax/payroll/FX signal}
@@ -712,6 +770,8 @@ Lens 2  Competitor Gap      {DEEP|MODERATE|LIGHT|SKIP}  competitors: {named list
 Lens 3  Regulation          {DEEP|MODERATE|LIGHT|SKIP}  regulations: {named list or "none"}
 Lens 4  Architecture        {DEEP|MODERATE|LIGHT|SKIP}  moats: {named list}
 Lens 5  UX Reduction        {DEEP|MODERATE|LIGHT|SKIP}
+Lens 6  Client Voice        {DEEP|MODERATE|LIGHT|SKIP}  pain-domains: {named list}
+Lens 7  Switch Interview    {DEEP|MODERATE|LIGHT|SKIP}  switching-from: {named list}
 Estimated web searches: ~{N}
 
 ACTIVATED LENSES SUMMARY: {N} DEEP  {N} MODERATE  {N} LIGHT  {N} SKIP
@@ -1536,6 +1596,167 @@ Cohort analysis:           data analyst + SQL → natural query  (mechanism: Gra
 
 Identify: Current industry step count for this specific feature. Design for one-click or zero-click. If you cannot reach one-click, identify the data architecture gap that prevents it.
 
+### Lens 6 — Client Voice Research
+
+What do real clients say about this pain in their own words? Mine the vocabulary, not the feature request.
+
+**Signal types to classify:**
+- 🔴 Rage signals — strong pain, high urgency
+- 🟡 Confusion signals — UX opportunity, cognitive load issue
+- 🟢 Workaround signals — automation opportunity (what they do manually today)
+- 🔵 Switch signals — acquisition opportunity (what pushed them to look for alternatives)
+- ⚪ Wish signals — feature gap (what they would pay for)
+- 🟣 Fear signals — trust deficit (what they're afraid of getting wrong)
+
+**Communities to search:**
+```
+Reddit communities:
+  r/accounting           r/SaaS              r/startups
+  r/smallbusiness        r/Entrepreneur      r/bookkeeping
+  r/QuickBooks           r/Xero              r/taxpros
+  r/freelance            r/indiehackers      r/microsaas
+  r/financialindependence r/webdev
+
+Platforms beyond Reddit:
+  Hacker News            — "Ask HN: what do you use for SaaS revenue accounting"
+  Indie Hackers          — community discussions on finance tools
+  G2 / Capterra          — 1-4 star reviews for competitors (not 5-stars)
+  Trustpilot             — competitor reviews
+  Product Hunt           — comments on competitor launches
+  Twitter/X              — "[tool] is broken" threads
+  LinkedIn               — "frustrated with [tool]" posts
+  YouTube comments       — accounting software tutorial videos
+  Quora                  — "how do you handle X in SaaS"
+```
+
+**Search query templates (run the relevant ones):**
+
+Frustration signals:
+```
+site:reddit.com "[pain-domain]" "I hate" OR "frustrated" OR "doesn't work" OR "waste of money"
+site:reddit.com "[tool-name]" "switching" OR "alternatives" OR "leaving" OR "cancelled"
+site:reddit.com "[pain-domain]" "every month" OR "manually" OR "spreadsheet" OR "copy paste"
+"[tool-name]" site:g2.com "cons" OR "wish" OR "missing" OR "doesn't"
+"[tool-name]" site:capterra.com "cons" OR "frustrating" OR "complicated" OR "support"
+```
+
+Pain vocabulary (domain-specific, add the relevant ones):
+```
+METRICS/MRR:    "numbers don't match" OR "MRR wrong" OR "can't trust my MRR"
+                "ChartMogul wrong" OR "Baremetrics vs QuickBooks" OR "ARR discrepancy"
+                "how do you calculate MRR" OR "MRR definition" site:reddit.com
+
+RECONCILIATION: "reconciliation nightmare" OR "books don't balance" OR "manual journal"
+                "Stripe QuickBooks reconciliation" OR "Synder problems" site:reddit.com
+                "month end close hours" OR "close takes forever" OR "reconcile manually"
+
+CLOSE/AUDIT:    "audit trail missing" OR "auditor asked for" OR "can't find the transaction"
+                "close pack" OR "board meeting numbers wrong" OR "restate revenue"
+                "books are a mess" OR "need to hire bookkeeper" OR "outgrown QuickBooks"
+
+TRUST:          "don't trust my numbers" OR "not sure if correct" OR "approximately"
+                "double-check manually" OR "run it twice" OR "export to Excel to verify"
+                "board presentation numbers" OR "investor due diligence" OR "first audit"
+
+MULTI-ENTITY:   "multi-entity accounting" OR "consolidated view" OR "4 currencies"
+                "intercompany eliminations" OR "consolidation headache" site:reddit.com
+```
+
+Trigger / job transition vocabulary:
+```
+"hire a bookkeeper" OR "need a CFO" OR "fractional CFO" site:reddit.com
+"Series A due diligence" OR "first audit" OR "board deck" site:reddit.com
+"migrating from" OR "replacing" OR "gave up on" "[tool-name]" site:reddit.com
+```
+
+Job description mining (reveals current tool pain as required skills):
+```
+site:linkedin.com/jobs "SaaS" "controller" OR "CFO" "ChartMogul" OR "Stripe" OR "ASC 606"
+site:indeed.com "finance manager" "SaaS" "revenue reconciliation" OR "month-end close"
+```
+
+**Output format:**
+
+```
+CLIENT VOICE FINDINGS
+Pain domains searched: {list}
+Signal counts: 🔴{N} rage  🟡{N} confusion  🟢{N} workaround  🔵{N} switch  ⚪{N} wish  🟣{N} fear
+
+Top 5 exact phrases clients use:
+  1. "{exact quote}" — source: {platform} — signal type: {type}
+  2. "{exact quote}" — source: {platform} — signal type: {type}
+  3. "{exact quote}" — source: {platform} — signal type: {type}
+  4. "{exact quote}" — source: {platform} — signal type: {type}
+  5. "{exact quote}" — source: {platform} — signal type: {type}
+
+Pain vocabulary glossary (use these words in copy, not analyst language):
+  Analyst says:      "{technical term}"
+  Client says:       "{their actual words}"
+
+Trigger moment confirmed: {yes — describe the event / no — not found}
+Midnight Test result: {would use at 11pm / monthly-only / wouldn't use}
+Trust deficit signal: {strong / moderate / weak / none found}
+```
+
+### Lens 7 — Switch Interview Patterns
+
+Why do clients abandon their current tools? The exit language is your acquisition copy.
+
+**Search strategy:**
+
+1-3 star reviews on G2/Capterra for tools clients are switching FROM:
+```
+site:g2.com "[tool-name]" review "cons" 2024 OR 2025
+site:capterra.com "[tool-name]" "switched" OR "moved to" OR "replaced"
+```
+
+Reddit switch threads:
+```
+site:reddit.com "[tool-name]" "switching" OR "left" OR "migrated" OR "cancelled"
+site:reddit.com "alternatives to [tool-name]" OR "[tool-name] alternative"
+site:reddit.com "replaced [tool-name]" OR "moved away from [tool-name]"
+```
+
+Hacker News migration threads:
+```
+site:news.ycombinator.com "[tool-name]" "switched" OR "replaced" OR "alternative"
+```
+
+**Pattern extraction — for each tool in the switching-from list:**
+
+```
+Tool: {name}
+Last-straw patterns (most frequent exit reasons):
+  1. {pattern} — frequency: {high/medium/low}
+  2. {pattern} — frequency: {high/medium/low}
+  3. {pattern} — frequency: {high/medium/low}
+
+Migration fear (why they stayed too long):
+  — {what made them delay switching despite the pain}
+
+Entry language (how they describe the new tool they want):
+  — "{exact words they use for what they're searching for}"
+```
+
+**Output format:**
+
+```
+SWITCH INTERVIEW FINDINGS
+Tools analyzed: {list}
+
+Confirmed last-straw moments:
+  → {tool}: "{exact pattern that triggers switching}"
+  → {tool}: "{exact pattern that triggers switching}"
+
+Migration fears (why clients stay broken):
+  → "{what they say}" — implication for Axtreo onboarding
+
+Entry language (what they search for when ready to switch):
+  → "{exact search terms}" — use in SEO, copy, ads
+
+Axtreo conversion opportunity: {what specifically to say to a client about to leave [tool]}
+```
+
 ---
 
 ## Phase 4 — Feature Classification
@@ -1649,6 +1870,22 @@ Industry step count: {N steps / N minutes}
 Axtreo design step count: {N steps}
 Mechanism: {how we achieve the reduction}
 Blocker if not at 1-click: {data architecture gap identified}
+
+### Lens 6 — Client Voice Research
+Pain signals found: 🔴{N} rage  🟡{N} confusion  🟢{N} workaround  🔵{N} switch  ⚪{N} wish  🟣{N} fear
+Top client phrases: {top 3 exact quotes with source}
+Pain vocabulary: Analyst says "{term}" / Client says "{their words}"
+Trigger moment: {confirmed event or "not found"}
+Midnight Test: {would use at 11pm / monthly-only / wouldn't use}
+Trust deficit: {strong / moderate / weak}
+Copy implication: {one sentence — how this changes the pitch or UI copy}
+
+### Lens 7 — Switch Interview Patterns
+Tools analyzed: {list}
+Last-straw moment: {what triggers clients to finally switch}
+Migration fear: {what makes them delay despite the pain}
+Entry language: {exact words clients search for when looking for an alternative}
+Axtreo conversion line: {one sentence — what to say to a client about to leave [tool]}
 
 ---
 
