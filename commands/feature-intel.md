@@ -138,24 +138,55 @@ You are the feature-intel COORDINATOR running on Sonnet. Execute the COORDINATOR
 2. MODEL ROUTING (produced inline in Phase 0) dictates every sub-agent model. Never override it.
 3. Collect all sub-agent return blocks, synthesize, then return the result block below.
 
-Return ONLY this block when done (≤ 300 words total — nothing else):
+Return ONLY this block when done — no prose, no commentary, nothing else:
 
 REPORT: /tmp/feature-intel-{slug}-{YYYYMMDD}.md
-VERDICT: {2 sentences — what exists today, what is the 10x gap}
-RISKS: {≤ 3 lines — security or delivery blockers only}
-SHIP ORDER:
-  P0 (hours): {must-fix items}
-  P1 (hours): {quick wins}
-  P2 (days):  {strategic items}
-CLASS A: {moat features}
-DO NOT BUILD: {1 line}
-PATTERN: {one reusable research or architecture pattern discovered this run — or "none"}
+
+━━━ VERDICT ━━━
+{2 sentences — what exists today + what the 10x gap is}
+
+━━━ RISKS ━━━
+🔴 P0  {item} — {one line: why it blocks ship}
+🟡 P1  {item} — {one line: impact if skipped}
+🟡 P1  {item} — {one line: impact if skipped}
+(omit P1 rows if none; never add more than 1 P0)
+
+━━━ SHIP ORDER ━━━
+P0  ⚡ hours  {item name} — {one-line rationale}
+P1  ⚡ hours  {item name} — {one-line value}
+P2  📅 days   {item name} — {one-line value}
+
+━━━ CLASS A MOAT ━━━
+→ {item} — {why no competitor has it}
+→ {item} — {why no competitor has it}
+
+━━━ DO NOT BUILD ━━━
+✗  {item} — {one-line reason}
+
+━━━ PATTERN ━━━
+{one reusable architecture or research pattern from this run — or "none"}
 `
 })
 ```
 
-When the coordinator returns: output its block verbatim, add the report as a clickable link.
-**Do not read the report. Do not run any other tool calls. The pipeline is complete.**
+When the coordinator returns:
+1. Output the formatted block above exactly as returned.
+2. Add the report path as a clickable link: `📄 Full report: {REPORT path}`
+3. Then — **without doing any other work** — append this menu, substituting the real item names from the block:
+
+```
+━━━ WHAT DO WE DO NEXT? ━━━
+1  🔴 Fix P0    — {P0 item name}
+2  ⚡ Build P1   — {P1 item name}
+3  📅 Start P2  — {P2 item name}
+4  🏰 Explore moat — {first Class A item}
+5  Something else — tell me
+
+Reply with a number and I'll start immediately.
+```
+
+4. **Wait for the user's reply.** Do not proceed, do not summarise, do not ask follow-up questions.
+5. When the user replies with a number (or text): execute that item directly — build it, create the PR branch, write the implementation plan, or run the next research pass. No further confirmation needed.
 
 ---
 
