@@ -170,6 +170,18 @@ ALWAYS — show these in every output:
 
 CONDITIONAL — only include a section if the research found something real:
 
+━━━ TARGET GOAL ━━━
+→ include only when the feature has a clear end state beyond the build steps —
+  what "done" looks like for the person using it. One sentence: when this ships,
+  {person} can {do X} without {current pain}. Skip for pure fixes or refactors.
+
+━━━ OPPORTUNITY ━━━
+→ include only when research revealed something better than what was asked for,
+  or a gap adjacent to this feature that would multiply its impact. This is NOT
+  a restatement of the build list. It is one specific AI observation: a smarter
+  approach, a cheaper path, or a 10x moment hiding inside the original ask.
+  One sentence, sharp and specific. Skip if nothing genuinely better was found.
+
 ━━━ WHO FEELS IT ━━━
 → include only when there is a specific person + specific moment (e.g. "Sophie,
   night before board meeting"). Skip if the answer is "everyone, all the time."
